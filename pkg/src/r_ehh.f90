@@ -1,19 +1,17 @@
 !version du 24 02 2011 (calul selon approche Sabeti) et quelques modfis de forme
-!patch pour windows ou on rentre nhaplo_eval en double
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !calcul des ehh (fait appel a ehh_calc)
 !!renvoie: ehh(nmrk,2) !ehh en chaque position pour les deux alleles et nhaplo_eval(1:nmrk,2)
 !!renvoie ihh_1 et ihh_2
-subroutine r_ehh(mrk,nmrk,nhap,haplo,map_pos,ehh,out_nhaplo_eval,ihh,limhaplo,limehh)
+subroutine r_ehh(mrk,nmrk,nhap,haplo,map_pos,ehh,nhaplo_eval,ihh,limhaplo,limehh)
 use ehh_utils
 implicit none
 
-integer::lim_mrk=0,nmrk, nhap, mrk, tmp,tmp1,tmp_neval,i,j,limhaplo,nmrk_g,nmrk_d,tmp_all, haplo(nhap,nmrk)
-integer,allocatable :: haplo_test(:,:),nhaplo_eval(:,:)
-real (kind=8) :: limehh,tmp_ehh,tmp_aire,ihh(2),ehh(nmrk,2),map_pos(nmrk),out_nhaplo_eval(nmrk,2)
+integer::lim_mrk=0,nmrk, nhap, mrk, tmp,tmp1,tmp_neval,i,j,limhaplo,nmrk_g,nmrk_d,tmp_all, haplo(nhap,nmrk),nhaplo_eval(nmrk,2)
+integer,allocatable :: haplo_test(:,:)
+real (kind=8) :: limehh,tmp_ehh,tmp_aire,ihh(2),ehh(nmrk,2),map_pos(nmrk)
 real (kind=8),allocatable ::tmp_abs(:)
-
-allocate(nhaplo_eval(nmrk,2))
 
  if(lim_mrk==0) then
  nmrk_g=nmrk ; nmrk_d=1
@@ -82,13 +80,13 @@ end if
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!Calcul des iHH        !!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+allocate(tmp_abs(nmrk))
 do tmp_all=1,2
  tmp_abs=ehh(:,tmp_all)
  call calc_aire(tmp_abs,map_pos(:),tmp_aire)
  ihh(tmp_all)=tmp_aire
 end do
 
-out_nhaplo_eval(:,:)=nhaplo_eval(:,:) + 0.
 return
 
 end subroutine r_ehh

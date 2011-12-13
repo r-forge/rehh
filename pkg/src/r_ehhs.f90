@@ -1,10 +1,10 @@
 !version du 24 02 2011 (calul selon approche Sabeti) et quelques modfis de forme
-!patch pour windows ou on rentre nhaplo_eval en double
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !calcul des ehh (fait appel a ehh_calc)
 !!renvoie: ehh(nmrk,2) !ehh en chaque position pour les deux alleles et nhaplo_eval(1:nmrk,2)
 !!renvoie ihh_1 et ihh_2
-subroutine r_ehhs(mrk,nmrk,nhap,haplo,map_pos,ehhs,out_nhaplo_eval,ies,limhaplo,limehhs)
+subroutine r_ehhs(mrk,nmrk,nhap,haplo,map_pos,ehhs,nhaplo_eval,ies,limhaplo,limehhs)
 !haplo=as.integer => vecteur qu'il faut ensuite decomposer
 !map_pos=as.single =>vecteur de longueur nmrk
 !nmrk et nhap =>as.single
@@ -13,13 +13,21 @@ use ehh_utils
 implicit none
 
 integer::nmrk, nhap, mrk, tmp,tmp1,direction,dum_int=100,i,j,limhaplo,lim_mrk=0,&
-         nmrk_g,nmrk_d,tmp_all, haplo(nhap,nmrk)
+         nmrk_g,nmrk_d,tmp_all, haplo(nhap,nmrk),nhaplo_eval(nmrk)!,out_nhaplo_eval(*)
 ! si lim_nmrk=0, on fait comme avnat (on explore tout),sinon ion ne considere qe lim_mrk à agauche et a droite
-integer,allocatable :: haplo_test(:,:),nhaplo_eval(:)
-real (kind=8) :: limehhs,tmp_ehh=0.,tmp_aire,ies,dum_real,ehhs(nmrk),map_pos(nmrk),out_nhaplo_eval(nmrk)
+integer,allocatable :: haplo_test(:,:)!,haplo(:,:),nhaplo_eval(:)
+real (kind=8) :: limehhs,tmp_ehh=0.,tmp_aire,ies,dum_real,ehhs(nmrk),map_pos(nmrk)!,out_ehhs(*)!,Ymap_pos(*)
 real (kind=8),allocatable ::tmp_abs(:)!,map_pos(:)
 
-allocate(nhaplo_eval(nmrk))
+!allocate(haplo(nhap,nmrk),map_pos(nmrk),ehhs(nmrk),nhaplo_eval(nmrk))
+!allocate(map_pos(nmrk))
+
+!do j=1,nmrk
+! map_pos(j)=j*100.!  Ymap_pos(j)
+!! do i=1,nhap
+!!  haplo(i,j)=Yhaplo((i-1)*nmrk+j)
+!! end do
+!end do
 
  if(lim_mrk==0) then
  nmrk_g=nmrk ; nmrk_d=1
@@ -77,11 +85,10 @@ end if
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!Calcul des iES        !!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+allocate(tmp_abs(nmrk))
 tmp_abs=ehhs(:)
  call calc_aire(tmp_abs,map_pos(:),tmp_aire)
 ies=tmp_aire
-
-out_nhaplo_eval(:)=nhaplo_eval(:) +0.
 
 !print *,map_pos !ies,tmp_aire,ehhs(mrk)
 
