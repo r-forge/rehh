@@ -12,12 +12,12 @@ calc_ehh<-function(haplohh,mrk,limhaplo=2,limehh=0.05,plotehh=TRUE,main_leg="EHH
                     haplo=as.integer(haplohh@haplo),
                     map_pos=as.double(haplohh@position),
                     ehh=as.double(ehh),
-                    out_nhaplo_eval=as.double(nhaplo_eval),
+                    nhaplo_eval=as.integer(nhaplo_eval),
                     ihh=as.double(ihh),
                     limhaplo=as.integer(limhaplo),
                     limehh=as.double(limehh))
   ehh=matrix(res.ehh$ehh,2,haplohh@nsnp,byrow=T)
-  nhaplo_eval=matrix(res.ehh$out_nhaplo_eval,2,haplohh@nsnp,byrow=T)
+  nhaplo_eval=matrix(res.ehh$nhaplo_eval,2,haplohh@nsnp,byrow=T)
   rownames(ehh)=rownames(nhaplo_eval)=c("Anc. Allele","Der. Allele")
   colnames(ehh)=colnames(nhaplo_eval)=haplohh@snp.name
   ihh=res.ehh$ihh ; names(ihh)=c("Anc. Allele","Der. Allele")

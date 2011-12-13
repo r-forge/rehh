@@ -12,12 +12,12 @@ calc_ehhs<-function(haplohh,mrk,limhaplo=2,limehhs=0.05,plotehhs=TRUE,main_leg="
                      haplo=as.integer(haplohh@haplo),
                      map_pos=as.double(haplohh@position),
                      ehhs=as.double(ehhs),
-                     out_nhaplo_eval=as.double(nhaplo_eval),
+                     nhaplo_eval=as.integer(nhaplo_eval),
                      ies=as.double(ies),
                      limhaplo=as.integer(limhaplo),
                      limehhs=as.double(limehhs))
 
-  ehhs=res.ehhs$ehhs ; nhaplo_eval=res.ehhs$out_nhaplo_eval
+  ehhs=res.ehhs$ehhs ; nhaplo_eval=res.ehhs$nhaplo_eval
   names(ehhs)=names(nhaplo_eval)=haplohh@snp.name
   
   
