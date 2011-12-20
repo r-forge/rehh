@@ -8,7 +8,8 @@ ies2rsb<-function(hh_pop1,hh_pop2,popname1=NA,popname2=NA,method="bilateral"){
   tmp_pval=rsbcor*0
   if(method=="bilateral"){tmp_pval=-1*log10(1-2*abs(pnorm(rsbcor)-0.5))}
   if(method=="unilateral"){tmp_pval=-1*log10(1-pnorm(rsbcor))}
-
+  tmp_pval2=tmp_pval ; tmp_pval2[tmp_pval2=="Inf"]=NA  
+  tmp_pval[tmp_pval=="Inf"]=max(tmp_pval2,na.rm=TRUE) + 1 
   res.rsb=cbind(hh_pop1[,1:2],rsbcor,tmp_pval)
   colnames(res.rsb)[3]=paste("rSB (",popname1," vs ",popname2,")",sep="")
   colnames(res.rsb)[4]=paste("Pvalue (",method,")",sep="")
