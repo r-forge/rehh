@@ -24,7 +24,7 @@
    Voight, B.F. and Kudaravalli, S. and Wen, X. and Pritchard, J.K. (2006). 
    A map of recent positive selection in the human genome. \emph{Plos Biology}, \bold{4}, e72.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr>}
+\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
 \note{
 }
 \seealso{calc_ehh,scan_hh,distribplot,ihsplot}

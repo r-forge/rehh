@@ -11,7 +11,7 @@
   \item{xlab}{Character string for the X-axis legend}
 }
 \value{The function returns a plot.}
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr>}
+\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
 \note{
 }
 \seealso{scan_hh,ihh2ihs,ies2rsb,ihsplot,rsbplot}

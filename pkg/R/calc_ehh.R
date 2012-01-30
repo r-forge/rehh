@@ -5,22 +5,24 @@ calc_ehh<-function(haplohh,mrk,limhaplo=2,limehh=0.05,plotehh=TRUE,main_leg="EHH
   if(limehh<0 | limehh>1){stop("limehh must be between 0 and 1")}
   
   ehh<-matrix(0,nrow=haplohh@nsnp,ncol=2) ; nhaplo_eval<-matrix(0,nrow=haplohh@nsnp,ncol=2) ; ihh<-rep(0,2)
-  res.ehh<-.Fortran(name="r_ehh",
-                    mrk=as.integer(mrk),
-                    nmrk=as.integer(haplohh@nsnp),
-                    nhap=as.integer(haplohh@nhap),
-                    haplo=as.integer(haplohh@haplo),
-                    map_pos=as.double(haplohh@position),
-                    ehh=as.double(ehh),
-                    nhaplo_eval=as.integer(nhaplo_eval),
-                    ihh=as.double(ihh),
-                    limhaplo=as.integer(limhaplo),
-                    limehh=as.double(limehh))
-  ehh=matrix(res.ehh$ehh,2,haplohh@nsnp,byrow=T)
-  nhaplo_eval=matrix(res.ehh$nhaplo_eval,2,haplohh@nsnp,byrow=T)
+  res.ehh<-.C("r_ehh", 
+               Rdata = as.integer(haplohh@haplo),
+               number_SNPs  = as.integer(haplohh@nsnp),
+               number_chromosomes = as.integer(haplohh@nhap),
+               focal_SNP = as.integer(mrk),
+               map = as.double(haplohh@position),
+               number_haplotypes = as.integer(nhaplo_eval),
+               EHH = as.double(ehh),
+               IHH = as.double(ihh),
+               min_number_haplotypes = as.integer(limhaplo),
+               min_EHH = as.double(limehh)
+            )
+
+  ehh=matrix(res.ehh$EHH,2,haplohh@nsnp,byrow=T)
+  nhaplo_eval=matrix(res.ehh$number_haplotypes,2,haplohh@nsnp,byrow=T)
   rownames(ehh)=rownames(nhaplo_eval)=c("Anc. Allele","Der. Allele")
   colnames(ehh)=colnames(nhaplo_eval)=haplohh@snp.name
-  ihh=res.ehh$ihh ; names(ihh)=c("Anc. Allele","Der. Allele")
+  ihh=res.ehh$IHH ; names(ihh)=c("Anc. Allele","Der. Allele")
 
  if(plotehh){
    sel_reg<-(colSums(nhaplo_eval)>0)

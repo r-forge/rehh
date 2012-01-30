@@ -33,18 +33,15 @@ in turn the computation of the integrated EHHS relative to map distances (iES).
    to Detect Recent Positive Selection in the Human Genome. \emph{Plos Biology}, \bold{7}, e171.
 
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr>}
+\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
 \note{
 }
 \seealso{calc_ehh,data2haplohh,scan_hh}
 \examples{
 data(hap_cgu_bta12) 
-## haplotype data set (180 haplotypes, 1424 SNPs) see ?hap_cgu_bta12 for details
-data(map_bta12)
-## map information (1424 SNPs) see ?map_bta12 for details
-
-hap<-data2haplohh(hap_cgu_bta12,map_bta12)
+#example haplohh object (280 haplotypes, 1424 SNPs) see ?haplohh_cgu_bta12 for details
+data(haplohh_cgu_bta12) 
 
 #computing EHH statisitics for the focal SNP at position 456 which display a strong signal of selection
-res.ehhs<-calc_ehhs(hap,mrk=456)
+res.ehhs<-calc_ehhs(haplohh_cgu_bta12,mrk=456)
 }

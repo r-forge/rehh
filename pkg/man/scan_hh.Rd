@@ -36,16 +36,12 @@ Extended Haplotype Homozygosity (EHH), site-specific EHH (EHHS), integrated EHH 
    Voight, B.F. and Kudaravalli, S. and Wen, X. and Pritchard, J.K. (2006). 
    A map of recent positive selection in the human genome. \emph{Plos Biology}, \bold{4}, e72.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr>}
+\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
 \note{
 }
 \seealso{calc_ehh,calc_ehhs,data2haplohh,ihh2ihs,ies2rsb}
 \examples{
-data(hap_cgu_bta12) 
-## haplotype data set (180 haplotypes, 1424 SNPs) see ?hap_cgu_bta12 for details
-data(map_bta12)
-## map information (1424 SNPs) see ?map_bta12 for details
-hap<-data2haplohh(hap_cgu_bta12,map_bta12)
-
-res.scan<-scan_hh(hap)
+#example haplohh object (280 haplotypes, 1424 SNPs) see ?haplohh_cgu_bta12 for details
+data(haplohh_cgu_bta12) 
+res.scan<-scan_hh(haplohh_cgu_bta12)
 }

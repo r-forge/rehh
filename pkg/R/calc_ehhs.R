@@ -5,19 +5,20 @@ calc_ehhs<-function(haplohh,mrk,limhaplo=2,limehhs=0.05,plotehhs=TRUE,main_leg="
   if(limehhs<0 | limehhs>1){stop("limehhs must be between 0 and 1")}
   
   nhaplo_eval<-rep(0,haplohh@nsnp) ; ehhs<-rep(0,haplohh@nsnp) ; ies<-0
-  res.ehhs<-.Fortran(name="r_ehhs",
-                     mrk=as.integer(mrk),
-                     nmrk=as.integer(haplohh@nsnp),
-                     nhap=as.integer(haplohh@nhap),
-                     haplo=as.integer(haplohh@haplo),
-                     map_pos=as.double(haplohh@position),
-                     ehhs=as.double(ehhs),
-                     nhaplo_eval=as.integer(nhaplo_eval),
-                     ies=as.double(ies),
-                     limhaplo=as.integer(limhaplo),
-                     limehhs=as.double(limehhs))
+  res.ehhs<-.C("r_ehhs", 
+                  Rdata = as.integer(haplohh@haplo),
+                  number_SNPs  = as.integer(haplohh@nsnp),
+                  number_chromosomes = as.integer(haplohh@nhap),
+                  focal_SNP = as.integer(mrk),
+                  map = as.double(haplohh@position),
+                  number_haplotypes = as.integer(nhaplo_eval),
+                  EHHS = as.double(ehhs),
+                  IES = as.double(ies),
+                  min_number_haplotypes = as.integer(limhaplo),
+                  min_EHH = as.double(limehhs)
+                  )
 
-  ehhs=res.ehhs$ehhs ; nhaplo_eval=res.ehhs$nhaplo_eval
+  ehhs=res.ehhs$EHHS ; nhaplo_eval=res.ehhs$number_haplotypes
   names(ehhs)=names(nhaplo_eval)=haplohh@snp.name
   
   

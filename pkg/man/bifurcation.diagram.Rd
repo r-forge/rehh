@@ -37,25 +37,20 @@ distance haplotype.
    and Ward, R. and Lander, E.S. (2002). Detecting recent positive selection in the human genome 
    from haplotype structure. \emph{Nature}, \bold{419}, 832--837.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr>}
+\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
 \note{
 }
 \seealso{}
 \examples{
-data(hap_cgu_bta12) 
-## haplotype data set (180 haplotypes, 1424 SNPs) see ?hap_cgu_bta12 for details
-data(map_bta12)
-## map information (1424 SNPs) see ?map_bta12 for details
-
-hap<-data2haplohh(hap_cgu_bta12,map_bta12)
-
+#example haplohh object (280 haplotypes, 1424 SNPs) see ?haplohh_cgu_bta12 for details
+data(haplohh_cgu_bta12) 
 #plotting bifurcation diagram for both ancestral and derived allele
 #from the focal SNP at position 456 which display a strong signal of selection
 layout(matrix(1:2,2,1))
 #ancestral allele
-bifurcation.diagram(hap,mrk_foc=456,all_foc=1,nmrk_l=20,nmrk_r=20)
+bifurcation.diagram(haplohh_cgu_bta12,mrk_foc=456,all_foc=1,nmrk_l=20,nmrk_r=20)
 #derived allele
-bifurcation.diagram(hap,mrk_foc=456,all_foc=2,nmrk_l=20,nmrk_r=20)
+bifurcation.diagram(haplohh_cgu_bta12,mrk_foc=456,all_foc=2,nmrk_l=20,nmrk_r=20)
 ## 
 dev.off()
 }

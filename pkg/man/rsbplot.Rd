@@ -17,7 +17,7 @@
    Gautier, M. and Naves, M. (2011). Footprints of selection in the ancestral admixture of a New World
    Creole cattle breed. \emph{Molecular Ecology}, \bold{20}, 3128--3143.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr>}
+\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
 \note{
 }
 \seealso{calc_ehhs,scan_hh,distribplot,ihsplot}

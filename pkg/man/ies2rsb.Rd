@@ -23,7 +23,7 @@
    Tang, K. and Thornton, K.R. and Stoneking, M. (2007). A New Approach for Using Genome Scans
    to Detect Recent Positive Selection in the Human Genome. \emph{Plos Biology}, \bold{7}, e171.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr>}
+\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
 \note{
 }
 \seealso{calc_ehhs,scan_hh,distribplot,rsbplot}
