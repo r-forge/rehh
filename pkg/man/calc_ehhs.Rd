@@ -38,10 +38,8 @@ in turn the computation of the integrated EHHS relative to map distances (iES).
 }
 \seealso{calc_ehh,data2haplohh,scan_hh}
 \examples{
-data(hap_cgu_bta12) 
 #example haplohh object (280 haplotypes, 1424 SNPs) see ?haplohh_cgu_bta12 for details
 data(haplohh_cgu_bta12) 
-
 #computing EHH statisitics for the focal SNP at position 456 which display a strong signal of selection
 res.ehhs<-calc_ehhs(haplohh_cgu_bta12,mrk=456)
 }

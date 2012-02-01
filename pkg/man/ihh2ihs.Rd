@@ -6,7 +6,7 @@
 \usage{ihh2ihs(res_ihh,freqbin=0.025,minmaf=0.05)}
 \arguments{
   \item{res_ihh}{A matrix with nsnps rows and six columns (Chromosome name, position of the SNP, Frequency of the ancestral allele, iHH for the ancestral allele, iHH for the derived allele and iES) obtained after performing a scan on the population of interest.}
-  \item{freqbin}{Size of the bin to standardize iHH according to the underlying Ancestral Allele frequency. Allele frequency bins vary from \code{minmaf} to 1-\code{minmaf} per step of size \code{freqbin}. If \code{freqbin} is set to 0 (e.g. in the case of a large number of SNPs and few haplotypes), standardization is performed
+  \item{freqbin}{Size of the bin to standardize log(iHH1/iHH2) according to the underlying Derived Allele frequency. Allele frequency bins vary from \code{minmaf} to 1-\code{minmaf} per step of size \code{freqbin}. If \code{freqbin} is set to 0 (e.g. in the case of a large number of SNPs and few haplotypes), standardization is performed
  considering each observed frequency as a frequency class.
 }
   \item{minmaf}{SNPs with a MAF (Minor Allele Frequency) lower than \code{minmaf} are discarded from the analysis}

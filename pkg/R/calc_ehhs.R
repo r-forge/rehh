@@ -18,7 +18,7 @@ calc_ehhs<-function(haplohh,mrk,limhaplo=2,limehhs=0.05,plotehhs=TRUE,main_leg="
                   min_EHH = as.double(limehhs)
                   )
 
-  ehhs=res.ehhs$EHHS ; nhaplo_eval=res.ehhs$number_haplotypes
+  ehhs=res.ehhs$EHHS ; nhaplo_eval=res.ehhs$number_haplotypes 
   names(ehhs)=names(nhaplo_eval)=haplohh@snp.name
   
   
@@ -31,6 +31,6 @@ calc_ehhs<-function(haplohh,mrk,limhaplo=2,limehhs=0.05,plotehhs=TRUE,main_leg="
    }
    }
    
-  return(list(ehhs=ehhs,nhaplo_eval=nhaplo_eval,ies=res.ehhs$ies))
+  return(list(ehhs=ehhs,nhaplo_eval=nhaplo_eval,ies=res.ehhs$IES))
 }
 
