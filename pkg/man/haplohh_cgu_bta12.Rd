@@ -1,5 +1,4 @@
 \name{haplohh_cgu_bta12}
-\Rdversion{1.1}
 \alias{haplohh_cgu_bta12}
 \docType{data}
 

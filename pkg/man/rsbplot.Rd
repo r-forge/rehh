@@ -1,5 +1,4 @@
 \name{rsbplot}
-\Rdversion{1.1}
 \alias{rsbplot}
 \title{Plot Rsb over a genome}
 \description{Plot Rsb over a genome.}
@@ -17,13 +16,11 @@
    Gautier, M. and Naves, M. (2011). Footprints of selection in the ancestral admixture of a New World
    Creole cattle breed. \emph{Molecular Ecology}, \bold{20}, 3128--3143.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
-\note{
-}
 \seealso{calc_ehhs,scan_hh,distribplot,ihsplot}
 \examples{
 data(wgscan.cgu) ; data(wgscan.eut) 
-## results from a genome scan (44,057 SNPs) see ?wgscan.eut and ?wgscan.cgu for details
+## results from a genome scan (44,057 SNPs)
+#see ?wgscan.eut and ?wgscan.cgu for details
 res.rsb<-ies2rsb(wgscan.cgu,wgscan.eut,"CGU","EUT")
 rsbplot(res.rsb$res.rsb)
 }

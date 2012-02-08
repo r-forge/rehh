@@ -1,11 +1,14 @@
 \name{bifurcation.diagram}
-\Rdversion{1.1}
 \alias{bifurcation.diagram}
 \title{plot of an haplotype bifurcation diagram}
 \description{Haplotype Bifurcation diagram visualizes the
 breakdown of LD at increasing distances from the core allele at the selected focal SNPs.
 }
-\usage{bifurcation.diagram(haplohh,mrk_foc,all_foc=1,nmrk_l=10,nmrk_r=10,limhapcount=10,refsize=0.1,linecol="blue",main_leg=NA,xlab_leg="Position")}
+\usage{
+bifurcation.diagram(haplohh,mrk_foc,all_foc=1,nmrk_l=10,nmrk_r=10,
+limhapcount=10,refsize=0.1,linecol="blue",
+main_leg=NA,xlab_leg="Position")
+}
 \arguments{
   \item{haplohh}{An object of class \code{haplohh} (see \code{data2haplohh}).}
   \item{mrk_foc}{Integer representing the number of the focal marker}
@@ -37,20 +40,20 @@ distance haplotype.
    and Ward, R. and Lander, E.S. (2002). Detecting recent positive selection in the human genome 
    from haplotype structure. \emph{Nature}, \bold{419}, 832--837.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
-\note{
-}
-\seealso{}
 \examples{
-#example haplohh object (280 haplotypes, 1424 SNPs) see ?haplohh_cgu_bta12 for details
+#example haplohh object (280 haplotypes, 1424 SNPs)
+#see ?haplohh_cgu_bta12 for details
 data(haplohh_cgu_bta12) 
 #plotting bifurcation diagram for both ancestral and derived allele
-#from the focal SNP at position 456 which display a strong signal of selection
+#from the focal SNP at position 456
+#which display a strong signal of selection
 layout(matrix(1:2,2,1))
 #ancestral allele
-bifurcation.diagram(haplohh_cgu_bta12,mrk_foc=456,all_foc=1,nmrk_l=20,nmrk_r=20)
+bifurcation.diagram(haplohh_cgu_bta12,mrk_foc=456,all_foc=1,
+nmrk_l=20,nmrk_r=20)
 #derived allele
-bifurcation.diagram(haplohh_cgu_bta12,mrk_foc=456,all_foc=2,nmrk_l=20,nmrk_r=20)
+bifurcation.diagram(haplohh_cgu_bta12,mrk_foc=456,all_foc=2,
+nmrk_l=20,nmrk_r=20)
 ## 
 dev.off()
 }

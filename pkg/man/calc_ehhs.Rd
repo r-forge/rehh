@@ -1,9 +1,11 @@
 \name{calc_ehhs}
-\Rdversion{1.1}
 \alias{calc_ehhs}
 \title{EHHS and iES computations at a given core SNP}
 \description{Compute site Extended Haplotype Homozygosity (EHHS) and integrated EHH (iES) for a given focal SNPs.}
-\usage{calc_ehhs(haplohh,mrk,limhaplo=2,limehhs=0.05,plotehhs=TRUE,main_leg="EHHS plot")}
+\usage{
+calc_ehhs(haplohh,mrk,limhaplo=2,limehhs=0.05,
+plotehhs=TRUE,main_leg="EHHS plot")
+}
 \arguments{
   \item{haplohh}{An object of class \code{haplohh} (see \code{data2haplohh}).}
   \item{mrk}{Integer representing the number of the focal marker}
@@ -33,13 +35,12 @@ in turn the computation of the integrated EHHS relative to map distances (iES).
    to Detect Recent Positive Selection in the Human Genome. \emph{Plos Biology}, \bold{7}, e171.
 
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
-\note{
-}
 \seealso{calc_ehh,data2haplohh,scan_hh}
 \examples{
-#example haplohh object (280 haplotypes, 1424 SNPs) see ?haplohh_cgu_bta12 for details
+#example haplohh object (280 haplotypes, 1424 SNPs)
+#see ?haplohh_cgu_bta12 for details
 data(haplohh_cgu_bta12) 
-#computing EHH statisitics for the focal SNP at position 456 which display a strong signal of selection
+#computing EHH statisitics for the focal SNP at position 456
+#which displays a strong signal of selection
 res.ehhs<-calc_ehhs(haplohh_cgu_bta12,mrk=456)
 }

@@ -1,5 +1,4 @@
 \name{wgscan.eut}
-\Rdversion{1.1}
 \alias{wgscan.eut}
 \docType{data}
 

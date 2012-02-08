@@ -1,5 +1,4 @@
 \name{ihh2ihs}
-\Rdversion{1.1}
 \alias{ihh2ihs}
 \title{Compute iHS (standardized iHH)}
 \description{Compute iHS (standardized iHH).}
@@ -24,12 +23,10 @@
    Voight, B.F. and Kudaravalli, S. and Wen, X. and Pritchard, J.K. (2006). 
    A map of recent positive selection in the human genome. \emph{Plos Biology}, \bold{4}, e72.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
-\note{
-}
 \seealso{calc_ehh,scan_hh,distribplot,ihsplot}
 \examples{
 data(wgscan.cgu) 
-## results from a genome scan (44,057 SNPs) see ?wgscan.eut and ?wgscan.cgu for details
+## results from a genome scan (44,057 SNPs)
+##see ?wgscan.eut and ?wgscan.cgu for details
 res.ihs<-ihh2ihs(wgscan.cgu)
 }

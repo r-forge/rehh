@@ -1,5 +1,6 @@
 useDynLib(rehh)
 
+exportClasses(haplohh)
 export(bifurcation.diagram)
 export(calc_ehh)
 export(calc_ehhs)

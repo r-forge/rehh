@@ -1,9 +1,11 @@
 \name{distribplot}
-\Rdversion{1.1}
 \alias{distribplot}
 \title{Distribution of standardized iHS or Rsb values}
 \description{Plot the observed distribution of standardized iHS or Rsb values together with the expected standard Gaussian distribution}
-\usage{distribplot(data,col=c("blue","red"),main="iHS distribution",xlab="iHS")}
+\usage{
+distribplot(data,col=c("blue","red"),
+main="iHS distribution",xlab="iHS")
+}
 \arguments{
   \item{data}{A vector of iHS or Rsb values.}
   \item{col}{A vector describing color of the Observed and expected Gaussian distribution}
@@ -11,9 +13,6 @@
   \item{xlab}{Character string for the X-axis legend}
 }
 \value{The function returns a plot.}
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
-\note{
-}
 \seealso{scan_hh,ihh2ihs,ies2rsb,ihsplot,rsbplot}
 \examples{
 data(wgscan.cgu) 

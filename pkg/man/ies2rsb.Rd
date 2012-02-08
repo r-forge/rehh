@@ -1,5 +1,4 @@
 \name{ies2rsb}
-\Rdversion{1.1}
 \alias{ies2rsb}
 \title{Compute Rsb (standardized ratio of iES from two populations)}
 \description{Compute Rsb (standardized ratio of iES from two populations).}
@@ -23,12 +22,10 @@
    Tang, K. and Thornton, K.R. and Stoneking, M. (2007). A New Approach for Using Genome Scans
    to Detect Recent Positive Selection in the Human Genome. \emph{Plos Biology}, \bold{7}, e171.
 }
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
-\note{
-}
 \seealso{calc_ehhs,scan_hh,distribplot,rsbplot}
 \examples{
 data(wgscan.cgu) ; data(wgscan.eut) 
-## results from a genome scan (44,057 SNPs) see ?wgscan.eut and ?wgscan.cgu for details
+## results from a genome scan (44,057 SNPs)
+##see ?wgscan.eut and ?wgscan.cgu for details
 res.rsb<-ies2rsb(wgscan.cgu,wgscan.eut,"CGU","EUT")
 }

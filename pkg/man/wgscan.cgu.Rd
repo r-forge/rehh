@@ -1,5 +1,4 @@
 \name{wgscan.cgu}
-\Rdversion{1.1}
 \alias{wgscan.cgu}
 \docType{data}
 

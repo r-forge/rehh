@@ -1,9 +1,11 @@
 \name{data2haplohh}
-\Rdversion{1.1}
 \alias{data2haplohh}
 \title{Converting data into an object of class haplohh}
 \description{Converts input file data into an object of class haplohh.}
-\usage{data2haplohh(hap_file,map_file,min_maf=0,min_perc_geno.hap=100,min_perc_geno.snp=100,chr.name=NA,popsel=NA,recode.allele=FALSE)}
+\usage{
+data2haplohh(hap_file,map_file,min_maf=0,min_perc_geno.hap=100,
+min_perc_geno.snp=100,chr.name=NA,popsel=NA,recode.allele=FALSE)
+}
 \arguments{
   \item{hap_file}{Path to the file containing haplotype data (see details section below for information about input file format)}
   \item{map_file}{Path to the file containing map information (see details section below for information about input file format}
@@ -20,13 +22,14 @@ Map file contains SNPs information in five columns SNP names, chromosome, positi
 Finally, the arguments \code{min\_perc\_geno.hap}, \code{min\_perc\_geno.snp} and \code{min\_maf} are evaluated in this order.
 }
 \value{The returned value is an object of class haplohh}
-\author{Mathieu Gautier <mathieu.gautier@supagro.inra.fr> and Renaud Vitalis <renaud.vitalis@supagro.inra.fr>}
-\seealso{calc_ehh,calc_ehhs,scan_hh}
+\seealso{calc_ehh,calc_ehhs,scan_hh,make.example.files}
 \examples{
-#The command \code{make.example.files()} allows to copy three example files in the current working directory.
+#Copy example files in the current working directory.
 make.example.files()
 #using the fastPHASE output haplotype example file
-hap<-data2haplohh(hap_file="bta12_hapguess_switch.out",map_file="map.inp",min_maf=0.05,popsel=7,chr.name=12)
+hap<-data2haplohh(hap_file="bta12_hapguess_switch.out",map_file="map.inp",
+min_maf=0.05,popsel=7,chr.name=12)
 #using the standard output haplotype example file
-hap<-data2haplohh(hap_file="bta12_cgu.hap",map_file="map.inp",min_maf=0.05,chr.name=12)
+hap<-data2haplohh(hap_file="bta12_cgu.hap",map_file="map.inp",
+min_maf=0.05,chr.name=12)
 }
