@@ -139,7 +139,7 @@ void r_scan_hh(int *Rdata,
 			}
 		}
 		IES[focal_SNP] = integrate(map,EHHS,*number_SNPs,*min_EHHS);
-	printf("SNP = %d \tout of\t %d SNPs\n",focal_SNP+1,*number_SNPs);
+	Rprintf("SNP = %d \tout of\t %d SNPs\n",focal_SNP+1,*number_SNPs);
 	}
 	for (i = 0; i < *number_chromosomes; i++) {
 		free(data[i]);
