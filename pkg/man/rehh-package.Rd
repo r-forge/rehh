@@ -44,8 +44,8 @@ wgscan.eut              Whole genome scan results for a pool of
 }
 }
 \references{
-   Gautier, M. and Vitalis, R. (2011). rehh: An R package to detect footprints of 
-   selection in genome-wide SNP data from haplotype structure. submitted
+   Gautier, M. and Vitalis, R. (2012). rehh: An R package to detect footprints of 
+   selection in genome-wide SNP data from haplotype structure. \emph{Bioinformatics}, accepted.
 % \emph{Bioinformatics}, \bold{20}, 3128--3143.
 }
 \keyword{ package }
